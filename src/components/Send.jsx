@@ -16,6 +16,11 @@ export default function Send(){
     const [costoTlAg, setCostoTlAg] = React.useState('');
     const [costoTlAz,setCostoTlAz] = React.useState('');
     const [costotlGs,setCostoTlGs] = React.useState('');
+    const [costoTlAgMatrp,setCostoTlAgMatrp] = React.useState('');
+    const [constoTlAzMatrp, setCostoTlAzMatrp] = React.useState('');
+    const [costoTlGsMatrp, setCostoTlGsMatrp] = React.useState('');
+
+
 
     const handleInput1 = (datas) =>{
         const data = datas;
@@ -33,18 +38,27 @@ export default function Send(){
       const azucarporunidad = 100;
       const aguaporunidad = 500;
       
+      //Tmar en cuanta costo de envase 
+      //mostrar costos por azucar en vase a cantidad de productos tal que costoazucar * cantprod
 
       const costoTotalAzucar = cantprod * (azucarporunidad / 1000) * costAzucar;
       const costoTotalAgua = cantprod * (aguaporunidad / 1000) * costAgua;
       const costoTotalGas = cantprod * costoGas;
-    
+      
+      const costoRealAzucarPorprod = cantprod * costAzucar;
+      setCostoTlAz(costoRealAzucarPorprod);
+      const costoRealAguaPorprod = cantprod * costAgua;
+      setCostoTlAg(costoRealAguaPorprod);
+      const costoRealGasPotprod = cantprod * costoGas;
+      setCostoTlGs(costoRealGasPotprod);
+
 
       const costoRealAzucar = costoTotalAzucar / cantprod; 
-      setCostoTlAz(costoRealAzucar);
+      setCostoTlAzMatrp(costoRealAzucar);
       const costoRealAgua = costoTotalAgua / cantprod;
-      setCostoTlAg(costoRealAgua);
+      setCostoTlAgMatrp(costoRealAgua);
       const costoRealGas = costoTotalGas / cantprod;
-      setCostoTlGs(costoRealGas);
+      setCostoTlGsMatrp(costoRealGas);
 
 
       const costotalM = costoTotalAzucar + costoTotalAgua + costoTotalGas;
@@ -98,24 +112,24 @@ export default function Send(){
                <Typography sx={{fontSize: 14}} style={{
                    
                }}>
-                   Costo total de Azucar por unidad es: {`$${costoTlAz}`}
+                   Costo total de Azucar: {`$${costoTlAz}`}
                </Typography>
 
                <Typography sx={{fontSize: 14}} style={{
                    
                 }}>
-                    Costo total de Agua por unidad es: {`$${costoTlAg}`}
+                    Costo total de Agua: {`$${costoTlAg}`}
                 </Typography>
 
                 <Typography sx={{fontSize: 14}} style={{
                    
                 }}>
-                    Costo total de Gaspor unidad es: {`$${costotlGs}`}
+                    Costo total de Gas: {`$${costotlGs}`}
                 </Typography>
                 <Typography sx={{fontSize: 14}} style={{
                    
                 }}>
-                    Costo total de Materia Prima es: {`$${materiatotal}`}
+                    Costo total de Materia Prima es:{`$${materiatotal}`}
                 </Typography>
 
                 <Button onClick={() => {setMateriaPrimatotal('')}}>CLEAR</Button>
