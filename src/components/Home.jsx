@@ -29,13 +29,13 @@ export default function Home(){
 
   return(
     <>
-    <h1>BIENVENIDO</h1>
-    <Box sx={{minWidth:275}}>
+    
+    <Box sx={{minWidth:275, textAlign:'center'}} >
       <Card variant='outlined' style={{
         borderRadius:20,
       }}>
         
-       
+        <h1>BIENVENIDO</h1>
       </Card>
     </Box>
     </>

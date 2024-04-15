@@ -1,5 +1,6 @@
 .navmain{
     display: flex;
+    justify-content: space-around;
 }
 
 .navbar{
@@ -9,23 +10,24 @@
     border-radius: 20px;
     height: 90vh;
     position: left;
-    width: 15vw;
-
+    width: 5vw;
 }
 
 .navlist{
     width: 15vw;
     justify-content: space-around;
     list-style: none;
+   
 
 }
 
 .navitem{
     width:fit-content;
-    padding: 10px;
+    padding: 8px;
     margin-top: 20px;
-    
-   
+    text-align: center;
+    justify-content: center;
+  
    
     border-radius: 10px;
 }
@@ -33,7 +35,8 @@
 .navlist a{
     text-decoration: none;
     color:black;
-    padding: 3px;
+    text-align: center;
+    
 }
 
 .navlist a:hover{

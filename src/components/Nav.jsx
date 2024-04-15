@@ -18,14 +18,11 @@ export default function Nav(){
             <nav className="navbar">
                 <ul className="navlist">
                     <li className="navitem">
-                      <Link to={'Home'}><HomeIcon/></Link>
-                    </li>
-                    <li className="navitem">
-                      <Link to={`Send/${uiduser}`}><SendIcon/></Link>
+                      <Link to={`Send`}><SendIcon/></Link>
 
                     </li>
                     <li className="navitem">
-                      <a><FolderIcon/></a>
+                      <Link to={'Storage'}><FolderIcon/></Link>
                     </li>
                   
                
