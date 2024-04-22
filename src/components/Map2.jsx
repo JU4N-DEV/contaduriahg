@@ -1,5 +1,5 @@
 import React from "react";
-import mapboxgl from "mapbox-gl";
+
 import { onValue, ref } from "firebase/database";
 import { db2 } from "../modules/db";
 import './Map2.css'
