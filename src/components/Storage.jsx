@@ -34,7 +34,9 @@ export default function Storage(){
     const [data, setData] = React.useState([]);
     const [dataStatus, setDataStatus] = React.useState(false);
     const [clientStatus, setClientStatus] = React.useState(true);
-
+    const [latitude, setLatitude] = React.useState([]);
+    const [longitude, setLongitude] = React.useState([]);
+    const [positionm, setPositionM] = React.useState([]);
     useEffect(()=>{
         const uidUser = localStorage.getItem('uid');
         const user = localStorage.getItem('userName');
@@ -57,6 +59,12 @@ export default function Storage(){
                 const datas = snapshot.val();
                 if(datas){
                     const state = Object.values(datas).map((dat)=>dat);
+                    const state_latitude = Object.values(datas).map((dat) => dat.lat);
+                    setLatitude(state_latitude);
+                    const state_longitude = Object.values(datas).map((dat) => dat.lng);
+                    setLongitude(state_longitude);
+                    setPositionM([state_latitude, state_longitude])
+                    console.log("Reasponse data lat:", state_latitude)
                     const state_reverse = Object.values(state).reverse();
                     console.log("Prueba: ",state_reverse)
                 
@@ -129,11 +137,7 @@ export default function Storage(){
     
             )}
             <Typography>Ubicacion de tus pedidos: </Typography>
-             {data.map((data) => (
-                <>
-                <MapView2 lati={data.lat} longi={data.lng}/>
-                </>
-            ))}
+              <MapView2 />
             </>
         )}
         

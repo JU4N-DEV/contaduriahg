@@ -118,7 +118,8 @@ export default function Send(){
        costoMateriaPrima:costotalM,
        hora:hour,
        lat:`${lat}`,
-       lng:`${lng}`
+       lng:`${lng}`,
+       ubicacion:{lat:lat, lng:lng}
     })
 
    
