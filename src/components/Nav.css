@@ -36,7 +36,7 @@
     text-decoration: none;
     color:black;
     text-align: center;
-    
+    margin-left: -20px;
 }
 
 .navlist a:hover{
@@ -55,6 +55,11 @@
     height: 90vh;
     width: 80vw;
     position:relative;
+}
+
+.logouticon{
+    position: relative;
+    margin-top: 450px;
 }
 
 @media screen and (max-width: 670px) {
@@ -112,10 +117,8 @@
         align-items: center;
     
     }
-    .navitem{
-       
-       
-    }
+   
+    
 
     .navlist a{
       margin-left: -35px;

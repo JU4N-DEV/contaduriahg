@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { TextInputType1 } from './TextInput';
 import { Button } from '@mui/material';
 import Card from '@mui/material/Card';
@@ -10,18 +10,35 @@ import {getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword,sendE
 import { initializeApp } from 'firebase/app';
 import { authP } from '../modules/db';
 import { useNavigate } from 'react-router-dom';
+import './Login.css';
+
 
 export default function Login(){
 
     
     const [email, setEmail] = React.useState('');
     const [pass, setPass] = React.useState('');
+    const [stateClient,setStateClient] = React.useState(false);
     const navigate = useNavigate();
 
 
     function handleSingUp(){
 
     }
+
+    useEffect(()=>{
+        const uid_US = localStorage.getItem('uid');
+        const user_NM = localStorage.getItem('userName');
+
+        if(uid_US && user_NM){
+            setStateClient(true);
+            console.log('Data 1:', uid_US,user_NM)
+            navigate(`/Send?uid=${uid_US}&user=${user_NM}`);
+        }else{
+           setStateClient(false);
+        }
+    },[])
+
 
     function handleLogin(){
         signInWithEmailAndPassword(authP,email,pass)
@@ -35,6 +52,10 @@ export default function Login(){
 
 
         })
+    }
+
+    function handlerdirectSingIn(){
+      navigate('/SingUp');
     }
  
     function changeInput1(e){
@@ -52,15 +73,17 @@ export default function Login(){
 
         <>
           <Box sx={{minWidth:275}}>
-
-            <Card variant='outlined'>
+            
+            <Card variant='outlined' className='cardLogin1'>
                 <CardContent>
+                <h1>Login</h1>
                 <TextField 
                 id="outlined-basic" 
                 label="Email" 
                 variant="outlined" 
                 onChange={changeInput1}
                 value={email}
+                style={{marginTop:20}}
                 />
                 <TextField
                  id="outlined-basic" 
@@ -69,12 +92,16 @@ export default function Login(){
                  onChange={changeInput2}
                  value={pass}
                  security={true}
+                 style={{marginTop:20}}
                  
                 />
 
-                <Button variant='outlined' onClick={()=>handleLogin()}>ENTER</Button>
+                <Button variant='contained' onClick={()=>handleLogin()} style={{marginTop:20}}>ENTER</Button>
 
+                <div className='section-reg'>
+                    <Button  style={{marginTop:10, textAlign:4}} onClick={()=>handlerdirectSingIn()}>Registrarse</Button>
 
+                </div>
 
                     
                 </CardContent>

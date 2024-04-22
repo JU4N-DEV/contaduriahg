@@ -2,13 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx';
 import './index.css'
-import { RouterProvider,createBrowserRouter,Routes,Route,BrowserRouter } from 'react-router-dom'
-import Home from './components/Home.jsx'
-import Nav from './components/Nav.jsx'
-import Send from './components/Send.jsx'
-import { loader } from './modules/getUid.js'
-import Storage from './components/Storage.jsx'
 
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 /**
  * const createRouter = createBrowserRouter([

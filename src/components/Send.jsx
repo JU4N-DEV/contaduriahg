@@ -6,11 +6,12 @@ import Box from '@mui/material/Box';
 import { TextInputType1 } from './TextInput';
 import Button from '@mui/material/Button';
 import './Send.css';
-import {useLocation} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import { doc,setDoc,getDoc, getDocs, query,where,collection, snapshotEqual,deleteField,updateDoc} from 'firebase/firestore'; 
 import { db, db2 } from '../modules/db';
 import { uid } from 'uid';
 import { getDatabase, ref, set } from "firebase/database";
+import MapView from './Map';
 
 
 export default function Send(){
@@ -36,7 +37,7 @@ export default function Send(){
         const uidRecovery = localStorage.getItem('uid');
         const userRecovery = localStorage.getItem('userName');
         console.log('User:', userName)
-        if(uidRecovery.length>0 && userRecovery.length>0){
+        if(uidRecovery && userRecovery){
             setStatusClient(false);
         }else{
             setStatusClient(true);
@@ -105,6 +106,9 @@ export default function Send(){
  
        * 
        */
+      const lat = localStorage.getItem('lat');
+      const lng = localStorage.getItem('lng');
+
   
     set(ref(db2,'users/' + uid_fromData +'/datauser'+ `/${hour}`),{
        cantidadref:cantprod,
@@ -112,7 +116,9 @@ export default function Send(){
        costoAgua:costoRealAguaPorprod,
        costoGas:costoRealGasPotprod,
        costoMateriaPrima:costotalM,
-       hora:hour
+       hora:hour,
+       lat:`${lat}`,
+       lng:`${lng}`
     })
 
    
@@ -137,7 +143,10 @@ export default function Send(){
     return(
         <>
         {statusClient ? (
-         <h1>NO TIENE ACCESO </h1>
+         <>
+         <h1>NO TIENES ACCESO</h1>
+         <Link to='/'>Inicia sesion aqui</Link>
+         </>
         ):(
             <>
             <p style={{fontSize:10}}>Created by: Juan HG</p>
@@ -146,6 +155,7 @@ export default function Send(){
             borderRadius:20, textAlign:'center'}}>
              <h1>REFRESCOS</h1>
             </Card>
+            <div className='sectionSend1'>
              <Card variant='outlined' style={{
               borderRadius:20,
               marginTop:25
@@ -164,11 +174,14 @@ export default function Send(){
                     Ingresa la cantidad de refrescos:
                 </Typography>
                 <TextInputType1 size={20} onChangetx={handleInput1} label="Ingresa la cantida de refrescos: " />
+                <Typography>Ingresa una ubicacion de entrega: </Typography>
+                <MapView/>
                 <Button onClick={() => {calcMateriaPrima(datarf)}} variant='contained' className='button1'>Enviar</Button>            
-              
+            
             
               </CardContent>
              </Card>
+             </div>
             </Box>
             {materiatotal ? (
                 <Box sx={{minWidth:275}}>

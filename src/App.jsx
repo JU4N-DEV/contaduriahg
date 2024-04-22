@@ -6,6 +6,7 @@ import { RouterProvider,createBrowserRouter,Routes,Route,BrowserRouter } from 'r
 import Login from './components/Login'
 import Send from './components/Send'
 import Storage from './components/Storage'
+import SingUp from './components/SingUp'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route index path='/' element={<Login/>}/>
           <Route path='/Send' element={<Send/>}/>
           <Route path='/Storage' element={<Storage/>}/>
+          <Route path='/SingUp' element={<SingUp/>}/>
         </Route>
        </Routes>
       </BrowserRouter>

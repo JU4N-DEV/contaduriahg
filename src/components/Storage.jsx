@@ -17,14 +17,16 @@ import Tooltip from '@mui/material/Tooltip';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import FilterListIcon from '@mui/icons-material/FilterList';
-
+import './Storage.css';
 import { doc,setDoc,getDoc, getDocs, query,where,collection, snapshotEqual,updateDoc,deleteField} from 'firebase/firestore'; 
 import { db2 } from "../modules/db";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Button } from "@mui/material";
 import { onValue, ref } from "firebase/database";
-
-
+import { Link } from "react-router-dom";
+import { Bar } from 'react-chartjs-2';
+import MapView from "./Map";
+import MapView2 from "./Map2";
 
 export default function Storage(){
     
@@ -37,12 +39,14 @@ export default function Storage(){
         const uidUser = localStorage.getItem('uid');
         const user = localStorage.getItem('userName');
 
-        if(uidUser.length >0 && user.length>0){
+        if(uidUser && user){
             setClientStatus(false);
         }else{
             setClientStatus(true);
         }
     },[])
+
+
 
  
 
@@ -76,12 +80,16 @@ export default function Storage(){
 
         <>
         {clientStatus ? (
+            <>
             <h1>NO TIENES ACCESO</h1>
+            <Link to='/'>Inicia sesion aqui</Link>
+            </>
         ):(
             <>
             {dataStatus ? (
-                <TableContainer component={Paper}>
-                    <Table sx={{maxWidth:650,}} aria-label="simple table" style={{
+                
+                  <TableContainer component={Paper} className="one">
+                    <Table sx={{maxWidth:150,}} aria-label="simple table" style={{
                     
                     }}>
                         <TableHead>
@@ -92,7 +100,8 @@ export default function Storage(){
                                 <TableCell align="rigth">Total Gas</TableCell>
                                 <TableCell align="rigth">Total Materia Prima</TableCell>
                                 <TableCell align="rigth">Hora</TableCell>
-
+                                <TableCell align="rigth">Latitude</TableCell>
+                                <TableCell align="rigth">Longitude</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -104,18 +113,28 @@ export default function Storage(){
                                 <TableCell align="rigth">{dat.costoGas}</TableCell>
                                 <TableCell align="rigth">{dat.costoMateriaPrima}</TableCell>
                                 <TableCell align="rigth">{dat.hora}</TableCell>
+                                <TableCell align="rigth">{dat.lat}</TableCell>
+                                <TableCell align="rigth">{dat.lng}</TableCell>
 
                                 </TableRow>
                             ))}
                         </TableBody>
                     </Table>
-                </TableContainer>
+                  </TableContainer>
+                
+                
             ):(
     
                 <h2>Esperando datos....</h2>
     
             )}
+            <Typography>Ubicacion de tus pedidos: </Typography>
+             {data.map((data) => (
+                <>
+                <MapView2 lati={data.lat} longi={data.lng}/>
                 </>
+            ))}
+            </>
         )}
         
         </>
