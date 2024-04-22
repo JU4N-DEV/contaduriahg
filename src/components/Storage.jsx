@@ -11,12 +11,7 @@ import TableSortLabel from '@mui/material/TableSortLabel';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
-import FilterListIcon from '@mui/icons-material/FilterList';
+
 import './Storage.css';
 import { doc,setDoc,getDoc, getDocs, query,where,collection, snapshotEqual,updateDoc,deleteField} from 'firebase/firestore'; 
 import { db2 } from "../modules/db";
@@ -24,7 +19,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Button } from "@mui/material";
 import { onValue, ref } from "firebase/database";
 import { Link } from "react-router-dom";
-import { Bar } from 'react-chartjs-2';
 import MapView from "./Map";
 import MapView2 from "./Map2";
 
