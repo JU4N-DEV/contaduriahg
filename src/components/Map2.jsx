@@ -4,7 +4,7 @@ import { onValue, ref } from "firebase/database";
 import { db2 } from "../modules/db";
 import './Map2.css'
 import { Typography } from "@mui/material";
-import { Marker, MapContainer, TileLayer} from 'react-leaflet'
+import { Marker, MapContainer, TileLayer} from 'https://cdn.esm.sh/react-leaflet'
 
 
 
