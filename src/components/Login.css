@@ -10,3 +10,14 @@
 .section-reg{
     display: flex;
 }
+@media screen and (max-width: 896px) {
+    .cardLogin1{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width:240px;
+    margin:0 auto;
+    margin-top: 90px;
+    }
+  
+  }
