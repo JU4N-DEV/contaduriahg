@@ -4,18 +4,16 @@ import { onValue, ref } from "firebase/database";
 import { db2 } from "../modules/db";
 import './Map2.css'
 import { Typography } from "@mui/material";
-import { Marker, MapContainer, TileLayer} from 'https://cdn.esm.sh/react-leaflet'
+import { Marker, MapContainer, TileLayer} from 'react-leaflet';
 
 
 
 export default function MapView2(){
-    const refmap = React.useRef(null);
+  
     
-    const [useSelectL, setSelectL] = React.useState([]);
+  
     const [markerpoint,setmarkerPoint] = React.useState([]);
-    const [lat,setLat] = React.useState('');
-    const [lng, setLng] = React.useState('');
-    const [mapState, setMapState] =  React.useState([]);
+
 
 
     React.useEffect(()=>{
@@ -38,7 +36,7 @@ export default function MapView2(){
     },[])
 
 
-    const poserr = [51.505, -0.09]
+
 
     return(
     <>
@@ -50,7 +48,7 @@ export default function MapView2(){
        />
        {markerpoint.map((data) => (
         <>
-        <Marker key={data.lat} position={data} />
+        <Marker position={data} />
         </>
        ))}
 

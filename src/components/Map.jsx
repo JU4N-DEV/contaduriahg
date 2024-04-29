@@ -1,7 +1,7 @@
 import React from "react";
 import mapboxgl from "mapbox-gl";
 import Map,{Marker,GeolocateControl,NavigationControl} from "react-map-gl";
-import '../mapboxcss/mapbox-gl.css';
+
 import './Map.css'
 import { Typography } from "@mui/material";
 

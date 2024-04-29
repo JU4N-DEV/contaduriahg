@@ -1,5 +1,12 @@
 .map{
-    width: 40vw;
-    height: 30vh;
+    width: 20vw;
+    height: 20vh;
     border-radius: 10px;
+}
+
+@media screen and (max-width:896px){
+    .map{
+        width: 60vw;
+        height: 40vh;
+    }
 }
