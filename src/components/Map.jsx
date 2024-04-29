@@ -1,11 +1,9 @@
 import React from "react";
-import mapboxgl from "mapbox-gl";
-import Map,{Marker,GeolocateControl,NavigationControl} from "react-map-gl";
 
 import './Map.css'
 import { Typography } from "@mui/material";
-
-
+import { MapContainer, Marker , TileLayer,useMapEvents} from "react-leaflet";
+import {map} from 'leaflet'
 
 
 
@@ -18,7 +16,7 @@ export default function MapView(){
     const [lat,setLat] = React.useState('');
     const [lng, setLng] = React.useState('');
     
-    mapboxgl.accessToken=import.meta.env.VITE_MAPBOX;
+    
     
     
     
@@ -58,38 +56,30 @@ export default function MapView(){
 
 
     */
-    
-    
-    React.useEffect(()=>{
-        const map = new mapboxgl.Map({
-            container:refmap.current,
-            style: 'mapbox://styles/mapbox/streets-v11',
-            
-        })
-        
-        map.addControl(new mapboxgl.NavigationControl());
-        map.addControl(new mapboxgl.GeolocateControl());
-        
-        const lat = Object.values(markerpoint).map((dz)=>dz.lat);
-        const lng = Object.values(markerpoint).map((dz)=>dz.lng );
-    
-        
-       
-        map.on('click',(e)=>{
-            setSelectL(e)
-            setmarkerPoint(e.lngLat)            
-            localStorage.setItem('lat',e.lngLat.lat);
-            localStorage.setItem('lng', e.lngLat.lng)
-            new mapboxgl.Marker().setLngLat(e.lngLat).addTo(map);
-        })          
 
-        
+   
+    
+    
+    
 
-        console.log(markerpoint)           
-    },[])
-    return(
+    
+
+    const handlecicktoMaker =(e) =>{
+        setmarkerPoint(e.latlng)
+        console.log("Data click: ", e.latlng)
+    }
+
+   
+
+    return( 
     <>
-    <div id="map" ref={refmap}></div>
+    <MapContainer id='map' onClick={handlecicktoMaker} className="map" center={[51.505, -0.09]} zoom={13}>
+    <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    />
+  
+    </MapContainer>
     </>
     
     )
