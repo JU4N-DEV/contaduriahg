@@ -1,11 +1,10 @@
 {
   "hosting": {
-    "site": "conta-dev",
     "public": "public",
     "ignore": [
       "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
+      "**/.*"
+      
     ]
   }
 }

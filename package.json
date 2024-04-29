@@ -14,10 +14,18 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.15",
+    "dotenv": "^16.4.5",
+    "echarts": "^5.5.0",
     "firebase": "^10.10.0",
+    "mapbox-gl": "^3.3.0",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
+    "react-leaflet": "^4.2.1",
+    "react-map-gl": "^7.1.7",
     "react-router-dom": "^6.22.3",
+    "react-select": "^5.8.0",
+    "redis": "^4.6.13",
     "uid": "^2.0.2"
   },
   "devDependencies": {
