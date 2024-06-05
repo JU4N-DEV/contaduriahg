@@ -1,0 +1,75 @@
+package Exam;
+import java.util.Scanner;
+
+public class Exam1pru {
+    Scanner sc = new Scanner(System.in);
+    int i, j, m, n, p;
+    double acomuladorP = 0, pro = 0;
+    private int [][] a;
+
+    public void general() {
+        System.out.println("Ingrese la cantidad de renglones");
+        m = sc.nextInt();
+        System.out.println("Ingrese la cantidad de columnas");
+        n = sc.nextInt();
+        p = m * n;
+        
+       
+        double b[] = new double[p];
+        a = new int[m][n];
+        
+        System.out.println("Ingresa la matriz:");
+        for (i = 0; i < a.length; i++) {
+            for (j = 0; j < a.length; j++) {
+                a[i][j] = sc.nextInt();
+                acomuladorP += a[i][j];
+            }
+        }
+        
+        for (i = 0; i < a.length; i++) {
+            for (j = 0; j < a.length; j++) {
+                System.out.print(a[i][j] + "   ");
+            }
+            System.out.println();
+        }
+        
+        pro = acomuladorP / p;
+        System.out.println("El promedio de la matriz es:" + pro);
+
+        
+        
+        System.out.println("Vector de numeros mayores o iguales al promedio");
+        int index = 0;
+        for (i = 0; i < a.length; i++) {
+            for (j = 0; j < a.length; j++) {
+                if (a[i][j] >= pro) {
+                    b[index] = a[i][j];
+                    index++;
+                }
+            }
+        }
+        
+        for (i = 0; i < index; i++) {
+            System.out.println(b[i]);
+        }
+        
+        
+        
+
+        System.out.println("Vector de numeros menores al promedio");
+        index = 0;
+        for (i = 0; i < a.length; i++) {
+            for (j = 0; j < a.length; j++) {
+                if (a[i][j] < pro) {
+                    b[index] = a[i][j];
+                    index++;
+                }
+            }
+        }
+        
+        for (i = 0; i < index; i++) {
+            System.out.println(b[i]);
+        }
+    }
+
+

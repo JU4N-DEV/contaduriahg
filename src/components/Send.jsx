@@ -12,7 +12,11 @@ import { db, db2 } from '../modules/db';
 import { uid } from 'uid';
 import { getDatabase, ref, set } from "firebase/database";
 import MapView from './Map';
-
+import Slider from "react-slick";
+import Ref1 from '../assets/Ref1.jpg';
+import Ref2 from '../assets/Ref2.jpg';
+import Ref3 from '../assets/Ref3.jpg';
+import Ref4 from '../assets/Ref4.jpg';
 
 export default function Send(){
 
@@ -132,59 +136,90 @@ export default function Send(){
 
    
 
+    var Setting = {
+       dots: true,
+       infinite: true,
+       speed: 500,
+       slidesToShow: 1,
+       slidesToScroll: 1,
+       useCss:true,
+      
+    }
   
 
-    
-
-    
-   
-
-
-
-    return(
-        <>
-        {statusClient ? (
-         <>
-         <h1>NO TIENES ACCESO</h1>
-         <Link to='/'>Inicia sesion aqui</Link>
-         </>
-        ):(
-            <>
-            <p style={{fontSize:10}}>Created by: Juan HG</p>
-            <Box sx={{minWidth:275}}>
-            <Card variant='outlined' style={{
-            borderRadius:20, textAlign:'center'}}>
-             <h1>REFRESCOS</h1>
-            </Card>
+    /**
+     * 
+     *  <div className='sectionSend0'>
+              <Card variant='outlined' style={{
+               borderRadius:20, textAlign:'center'}}>
+                <h1>PEPSICO</h1>
+                <p style={{fontSize:10}}>Created by: Juan HG</p>
+               </Card>
+            </div>
+           
             <div className='sectionSend1'>
              <Card variant='outlined' style={{
               borderRadius:20,
               marginTop:25
              }}>
               <CardContent>
-                <Typography sx={{fontSize: 14}} style={{
-                    marginBottom:20,
-                    marginLeft:30
-                }}>
-                    
-                </Typography>
+
+              <div className='corrusel'>
+               <Slider {...Setting} className='slide1' >
+                <div className='itemsSlide'>
+                  <img className='imgSlide' src={Ref1} alt='Refresco 1' />
+                  <h3>Refresco 1</h3>
+                </div>
+
+                <div className='itemsSlide'>
+                <img className='imgSlide' src={Ref2} alt='Refresco 2' />
+                <h3>Refresco 2</h3>
+                </div>
+
+                <div className='itemsSlide'>
+                <img  className='imgSlide' src={Ref3} alt='Refresco 3' />
+                <h3>Refresco 3</h3>
+                </div> 
+
+                <div className='itemsSlide'>
+                <img  className='imgSlide' src={Ref4} alt='Refresco 4' />
+                <h3>Refresco 4</h3>
+                </div>
                 
-                <Typography sx={{fontSize:13}} style={{
+                <div className='itemsSlide'>
+                <img  className='imgSlide' src={Ref3} alt='Refresco 5' />
+                <h3>Refresco 5</h3>
+                </div>
+               </Slider>
+              </div>
+
+
+                
+                <div className='cardsSections1'>
+                  <Typography sx={{fontSize:13}} style={{
                     marginLeft:23
-                }}>
+                  }}>
                     Ingresa la cantidad de refrescos:
-                </Typography>
-                <TextInputType1 size={20} onChangetx={handleInput1} label="Ingresa la cantida de refrescos: " />
-                <Typography>Ingresa una ubicacion de entrega: </Typography>
-                <MapView/>
-                <Button onClick={() => {calcMateriaPrima(datarf)}} variant='contained' className='button1'>Enviar</Button>            
-            
-            
+                  </Typography>
+                  <TextInputType1 size={20} onChangetx={handleInput1} label="Ingresa la cantida de refrescos: " />
+                  <Button onClick={() => {calcMateriaPrima(datarf)}} variant='contained' className='button1'>Enviar</Button> 
+                </div>
+                
+                <div className='cardsSections2'>
+                 <Card>
+                   <Typography>Ingresa una ubicacion de entrega: </Typography>
+                   <div className='SectionMap'>
+                   <MapView/>
+                   </div>         
+                 </Card>
+                </div>
+
+               
               </CardContent>
              </Card>
-             </div>
-            </Box>
-            {materiatotal ? (
+
+
+              {materiatotal ? (
                 <Box sx={{minWidth:275}}>
                 <Card variant='outlined' style={{
                  borderRadius:20,
@@ -225,7 +260,35 @@ export default function Send(){
                 
                 </>
             )}
-            </>
+     */
+    
+           
+   
+
+
+
+    return(
+        <>
+        {statusClient ? (
+         <>
+         <h1>NO TIENES ACCESO</h1>
+         <Link to='/'>Inicia sesion aqui</Link>
+         </>
+        ):(
+            <div className='mainSend'>
+             <Typography variant='p'>
+              Code
+             </Typography>
+             <Card>
+              <CardContent>
+                <ul>
+                  <li> <a href=' http://pastie.org/p/1zZzVCH8wHV4fUtdvaQv0X'>http://pastie.org/p/1zZzVCH8wHV4fUtdvaQv0X</a></li>
+                </ul>
+                
+              </CardContent>
+             </Card>
+           
+             </div>
         )}
         </>
     )

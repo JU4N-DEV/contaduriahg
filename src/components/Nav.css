@@ -1,34 +1,33 @@
 .navmain{
-    display: flex;
-    justify-content: space-around;
+    position: sticky;
+    top: 0;
 }
+
 
 .navbar{
     background: #fff;
-    padding: 10px;
-    color: black;
+    padding: 2px;
+    color: rgb(0, 0, 0);
     border-radius: 20px;
-    height: 90vh;
-    position: left;
-    width: 5vw;
+    width: 99vw;
+    height: 10vh;
 }
 
 .navlist{
-    width: 15vw;
-    justify-content: space-around;
+    width: 10px;
     list-style: none;
-   
-
+    display: flex;
+    justify-content: space-between;
+    margin-left: 30px;
 }
 
 .navitem{
-    width:fit-content;
+    
     padding: 8px;
     margin-top: 20px;
     text-align: center;
     justify-content: center;
   
-   
     border-radius: 10px;
 }
 
@@ -36,103 +35,12 @@
     text-decoration: none;
     color:black;
     text-align: center;
-    margin-left: -20px;
+    margin-left: 50px;
 }
 
-.navlist a:hover{
-    background-color: rgb(0, 0, 0);
-    padding: 3px;
-    border-radius: 5px;
-    color: #fff;
-}
-
-#details {
-    margin-left: 20px;
-    background-color: #fff;
-    padding: 10px;
-    color: black;
-    border-radius: 20px;
-    height: 90vh;
-    width: 80vw;
-    position:relative;
-}
-
-.logouticon{
-    position: relative;
-    margin-top: 450px;
-}
-
-@media screen and (max-width: 670px) {
-   .navmain{
-    display: flex;
-    width: 5vw;
-    margin-right: 30px;
-   }
-
-    .navbar{
-        background: #6c6161;
-        padding: 5px;
-        color: rgb(255, 255, 255);
-        border-radius: 20px;
-        height: 90vh;
-        position: left;
-        width: 25vw;
-        justify-content: center;
-        align-items: center;
-    
-    }
-    .navitem{
-        padding: 10px;
-        margin-top: 20px;
-    }
-    #details {
-        margin-left: 20px;
-        background-color: #000000;
-        padding: 10px;
-        color: black;
-        border-radius: 20px;
-        height: 89vh;
-        width: 70vw;
-        position:relative;
-    }
+#details{
+  width: 99vw;
 
 }
 
-@media screen and (max-width: 896px) {
 
-    .navmain{
-     display: flex;
-     position: relative;
-    }
-
-    .navbar{
-        background: #ffffff;
-        padding: 3px;
-        color: black;
-        border-radius: 20px;
-        height: 90vh;
-        position: left;
-        width: 15vw;
-        justify-content: center;
-        align-items: center;
-    
-    }
-   
-    
-
-    .navlist a{
-      margin-left: -35px;
-
-    }
-    #details {
-        margin-left: 9px;
-        background-color: #fff;
-        padding: 10px;
-        color: black;
-        border-radius: 20px;
-        height: 89vh;
-        width: 73vw;
-        position:relative;
-    }
-
-}

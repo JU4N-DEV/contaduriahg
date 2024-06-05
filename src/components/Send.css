@@ -5,6 +5,37 @@
 
 }
 
+
+
+.mainSend{
+  display: grid;
+  grid-template-columns: [column1] 80vw;
+  grid-template-rows: [row1] auto ;
+  place-content: center;
+  
+
+}
+
+
+.sectionSend0{
+  grid-column: column1;
+  grid-row: row1;
+  
+}
+
 .sectionSend1{
-  display: flex;
+  grid-column: column1;
+  
+  grid-row: row2;
+}
+
+.corrusel{
+ width: 80vw;
+ text-align: center;
+}
+
+.imgSlide{
+  width: 240px;
+  justify-content: center;
+  
 }

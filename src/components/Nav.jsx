@@ -34,30 +34,35 @@ export default function Nav(){
 
 
     return(
-        <div className='navmain'>
-          <div className="NavBar">
+        <>
+         <div className='navmain'>
+          
             <nav className="navbar">
                 <ul className="navlist">
                     <li className="navitem">
-                      <Link to={`Send`}><SendIcon/></Link>
+                      <Link to={`Send`}>SEND</Link>
 
                     </li>
                     <li className="navitem">
-                      <Link to={'Storage'}><FolderIcon/></Link>
+                      <Link to={'Storage'}>DATABASE</Link>
+                    </li>
+                    <li className="navitem">
+                    { stateLogOut ? (<Button variant='text' onClick={()=>handleLogOut()}> <LogoutIcon/></Button>):(<></>)}
                     </li>
                   
                
                 </ul>
-                { stateLogOut ? (<Button sx={{marginTop:10}} variant='text' onClick={()=>handleLogOut()}> <LogoutIcon/></Button>):(<></>)}
+               
                
                
             </nav>
-            
-          </div>
+        
+         </div>
          
-          <div id='details'>
-            <Outlet/>
-          </div>
+        <div id='details'>
+          <Outlet/>
         </div>
+        </>
+       
     )
 }

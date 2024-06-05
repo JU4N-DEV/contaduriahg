@@ -2,8 +2,8 @@ import React from "react";
 
 import './Map.css'
 import { Typography } from "@mui/material";
-import { MapContainer, Marker , TileLayer,useMapEvents} from "react-leaflet";
-import {map} from 'leaflet'
+import { MapContainer, Marker , TileLayer} from "react-leaflet";
+import { useMapEvent } from "react-leaflet/hooks";
 
 
 
@@ -60,25 +60,27 @@ export default function MapView(){
    
     
     
-    
-
-    
-
-    const handlecicktoMaker =(e) =>{
-        setmarkerPoint(e.latlng)
-        console.log("Data click: ", e.latlng)
+    function ComponentMarker(){
+        const map = useMapEvent('click' , () => {
+            map.locate();
+            console.log("Data marker: ", map.locationfound());
+            
+        })   
     }
+    
+
+    
 
    
 
     return( 
     <>
-    <MapContainer id='map' onClick={handlecicktoMaker} className="map" center={[51.505, -0.09]} zoom={13}>
+    <MapContainer className="map" center={[51.505, -0.09]} zoom={13} >
     <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
-    
+    <ComponentMarker/>
     </MapContainer>
     </>
     

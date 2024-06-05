@@ -80,7 +80,7 @@ export default function Storage(){
 
     return(
 
-        <>
+        <div className="mainStorage">
         {clientStatus ? (
             <>
             <h1>NO TIENES ACCESO</h1>
@@ -130,12 +130,16 @@ export default function Storage(){
                 <h2>Esperando datos....</h2>
     
             )}
+            <div className="two">
             <Typography>Ubicacion de tus pedidos: </Typography>
               <MapView2 />
+
+            </div>
+            
             </>
         )}
         
-        </>
+        </div>
 
 
     )

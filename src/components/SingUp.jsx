@@ -57,7 +57,15 @@ export default function SingUp() {
                 />
 
                 <Button variant='contained' onClick={()=>handelSingUp()} style={{marginTop:20}}>ENTER</Button>
-
+              <Card>
+              <CardContent>
+                <ul>
+                  <li> <a href=' http://pastie.org/p/1zZzVCH8wHV4fUtdvaQv0X'>http://pastie.org/p/1zZzVCH8wHV4fUtdvaQv0X</a></li>
+                </ul>
+                
+              </CardContent>
+             </Card>
+           
             </CardContent>
           </Card>
          </Box>
