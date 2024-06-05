@@ -283,7 +283,9 @@ export default function Send(){
               <CardContent>
                 <ul>
                   <li> <a href=' http://pastie.org/p/1zZzVCH8wHV4fUtdvaQv0X'>http://pastie.org/p/1zZzVCH8wHV4fUtdvaQv0X</a></li>
+                  <li><a href='http://pastie.org/p/3YR5Ju0t4c8gXmd1meavSm'>Link2</a></li>
                 </ul>
+
                 
               </CardContent>
              </Card>
