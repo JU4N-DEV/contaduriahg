@@ -12,7 +12,7 @@ import { db, db2 } from '../modules/db';
 import { uid } from 'uid';
 import { getDatabase, ref, set } from "firebase/database";
 import MapView from './Map';
-import Slider from "react-slick";
+
 import Ref1 from '../assets/Ref1.jpg';
 import Ref2 from '../assets/Ref2.jpg';
 import Ref3 from '../assets/Ref3.jpg';
